@@ -13,17 +13,12 @@ public sealed class Book : IEquatable<Book>
 
     public required string Author { get; init; }
 
-    public ushort? Edition { get; init; }
+    public ushort Edition { get; init; }
 
     public string? Description { get; init; }
 
     public string? Publisher { get; init; }
-    
-    
-    /// <summary>
-    /// Flag for soft delete
-    /// </summary>
-    public bool Deleted { get; init; }
+       
 
     
     #region 'Equalty overrides'
@@ -37,8 +32,7 @@ public sealed class Book : IEquatable<Book>
             Author == other.Author &&
             Edition == other.Edition &&
             Description == other.Description &&
-            Publisher == other.Publisher &&
-            Deleted == other.Deleted);
+            Publisher == other.Publisher);
     }
     
     /// <summary>
@@ -68,7 +62,7 @@ public sealed class Book : IEquatable<Book>
     public static bool operator !=(Book? left, Book? right) => !(left == right);
 
     public override int GetHashCode() =>
-        (Id, Isbn, Name, Author, Edition, Description, Publisher, Deleted).GetHashCode();
+        (Id, Isbn, Name, Author, Edition, Description, Publisher).GetHashCode();
     
 #endregion
 
