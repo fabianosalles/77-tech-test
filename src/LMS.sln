@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Api", "LMS.BookInventory.Api\LMS.BookInventory.Api.csproj", "{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Domain", "LMS.BookInventory.Domain\LMS.BookInventory.Domain.csproj", "{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Infra", "LMS.BookInventory.Infra\LMS.BookInventory.Infra.csproj", "{AFE476DA-C517-4AAC-8F5B-27A4C954F689}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE476DA-C517-4AAC-8F5B-27A4C954F689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE476DA-C517-4AAC-8F5B-27A4C954F689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE476DA-C517-4AAC-8F5B-27A4C954F689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE476DA-C517-4AAC-8F5B-27A4C954F689}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
