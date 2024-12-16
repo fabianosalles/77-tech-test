@@ -14,6 +14,7 @@ public interface IBookRepository
         ushort? edition, string? description, string? publiser,
         CancellationToken cancellationToken);    
     Task DeleteAsync(Book book, CancellationToken cancellationToken);
+    Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     Task<IEnumerable<Book>> GetListAsync(int offset, int limit, CancellationToken cancellationToken);
     Task<int> CountAsync(CancellationToken cancellationToken);
 }

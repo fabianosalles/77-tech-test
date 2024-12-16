@@ -1,4 +1,5 @@
 ﻿using LMS.BookInventory.Application.Books.Commands.CreateBook;
+using LMS.BookInventory.Application.Books.Commands.DeleteBook;
 using LMS.BookInventory.Application.Books.Commands.UpdateBook;
 using LMS.BookInventory.Application.Books.Queries.GetList;
 using LMS.BookInventory.Application.Books.Queries.GeyById;
@@ -96,6 +97,25 @@ public class BooksController : ControllerBase
         return status switch
         {
             GetBookListQueryResult.Status => Ok(result),
+            _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
+        };
+    }
+
+
+
+    [HttpDelete("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<DeleteBookCommandResult>> DeleteAsync(
+        [FromRoute] Guid id,
+        CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(new DeleteBookCommand() { Id = id }, cancellationToken);
+        var status = result?.Code;
+        return status switch
+        {
+            DeleteBookCommandResult.Status.Deleted => NoContent(),
+            DeleteBookCommandResult.Status.BookNotFound => NotFound(),
             _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
         };
     }

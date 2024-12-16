@@ -103,16 +103,23 @@ public class BookRepository: IBookRepository
 
     /// <summary>
     /// Soft delete the book by marking deleted = true
-    /// </summary>
-    /// <param name="book"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    /// </summary>    
     /// <exception cref="BookNotFoundException"></exception>
     public async Task DeleteAsync(Domain.Entities.Book book, CancellationToken cancellationToken)
     {
-        var dbBook = await _dbContext.Books.FindAsync(book.Id, cancellationToken);
+        await DeleteAsync(book.Id, cancellationToken);
+    }
+
+    /// <summary>
+    /// Soft delete the book by marking deleted = true
+    /// </summary>
+    /// <param name="id"></param>    
+    /// <exception cref="BookNotFoundException"></exception>
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken)
+    {
+        var dbBook = await _dbContext.Books.FindAsync(id, cancellationToken);
         if (dbBook is null)
-            throw new BookNotFoundException(book.Id);
+            throw new BookNotFoundException(id);
 
         dbBook.Deleted = true;
         dbBook.LastUpdatedDateTime = DateTimeOffset.UtcNow;
@@ -138,7 +145,9 @@ public class BookRepository: IBookRepository
 
     public async Task<int> CountAsync(CancellationToken cancellationToken)
     {
-        return await _dbContext.Books.CountAsync(cancellationToken);
+        return await _dbContext.Books
+            .Where(x => x.Deleted == false)
+            .CountAsync(cancellationToken);
     }
 
 }

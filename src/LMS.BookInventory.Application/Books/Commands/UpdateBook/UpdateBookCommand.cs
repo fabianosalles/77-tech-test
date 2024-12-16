@@ -56,14 +56,10 @@ public record UpdateBookCommandResult
     public Status Code { get; }
 
     public static UpdateBookCommandResult BookNotFound()
-    {
-        return new UpdateBookCommandResult(Status.BookNotFound);
-    }
+        => new UpdateBookCommandResult(Status.BookNotFound);    
 
     public static UpdateBookCommandResult BookUpdated()
-    {
-        return new UpdateBookCommandResult(Status.BookUpdated);
-    }
+        => new UpdateBookCommandResult(Status.BookUpdated);    
 
     private UpdateBookCommandResult(Status code)
     {

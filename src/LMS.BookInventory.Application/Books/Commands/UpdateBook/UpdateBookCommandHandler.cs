@@ -7,13 +7,11 @@ namespace LMS.BookInventory.Application.Books.Commands.UpdateBook;
 
 public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand, UpdateBookCommandResult>
 {
-    private IBookRepository _bookRepository;
-    private IMapper _mapper;
+    private IBookRepository _bookRepository;    
 
-    public UpdateBookCommandHandler(IBookRepository bookRepository, IMapper mapper)
+    public UpdateBookCommandHandler(IBookRepository bookRepository)
     {
-        _bookRepository = bookRepository;
-        _mapper = mapper;
+        _bookRepository = bookRepository;        
     }
     public async Task<UpdateBookCommandResult> Handle(
         UpdateBookCommand request, 
