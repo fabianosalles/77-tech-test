@@ -29,8 +29,13 @@ public static class ConfigureServices
 
         if (environment.IsDevelopment() || environment.IsProduction())
         {
-            services.AddDbContext<BookContext>(db => db.UseSqlite(
-                configuration.GetConnectionString(DbConnectionKey)));
+            var connectionString = configuration.GetConnectionString(DbConnectionKey);
+            //services.AddSqlite<BookContext>(connectionString);
+            // environment.ContentRootPath
+            services.AddDbContext<BookContext>(
+                db => {                    
+                    db.UseSqlite(connectionString);                    
+                });
         }
         else
         {

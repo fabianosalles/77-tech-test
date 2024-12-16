@@ -5,11 +5,11 @@
 To init the database, run the following command and the `LMS.BookInventory.Infra` directory
 
 ```shell
- dotnet ef migrations add Initial -s ../LMS.BookInventory.Api/ --context LMS.BookInventory.Infra.Database.BookContext -o /Database/Migrations
+ dotnet ef migrations add Initial --s ../LMS.BookInventory.Api/LMS.BookInventory.Api.csproj --context LMS.BookInventory.Infra.Database.BookContext 
  ```
 
  To update the database...
 
  ```shell
- dotnet ef database update
+ dotnet ef database update -s ../LMS.BookInventory.Api/
  ```

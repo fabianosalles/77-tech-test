@@ -21,7 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Database\Migrations\" />
+      <Folder Include="Database\Configuration\" />
+      <Folder Include="Migrations\" />
     </ItemGroup>
 
 </Project>

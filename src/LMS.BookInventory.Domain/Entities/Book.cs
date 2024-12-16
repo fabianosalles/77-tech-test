@@ -16,11 +16,10 @@ public sealed class Book : IEquatable<Book>
     public ushort Edition { get; init; }
 
     public string? Description { get; init; }
-
-    public string? Publisher { get; init; }
-       
-
     
+    public string? Publisher { get; init; }
+      
+        
     #region 'Equalty overrides'
     
     public bool Equals(Book? other)
