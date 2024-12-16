@@ -1,6 +1,7 @@
 using LMS.BookInventory.Infra;
 using LMS.BookInventory.Application;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,8 @@ builder.Services.AddOpenApi();
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddInfrastructureServices(builder.Configuration, builder.Environment);
 builder.Services.AddApplicationServices();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
-
 builder.Services.AddApiVersioning(setup =>
 {
     setup.DefaultApiVersion = new ApiVersion(1, 0);

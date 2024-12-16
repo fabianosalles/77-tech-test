@@ -21,7 +21,7 @@ public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, Creat
 
         var newBook = new Domain.Entities.Book()
         {
-            Id = Guid.NewGuid(),
+            Id = request.Id ?? Guid.NewGuid(),
             Isbn = request.Isbn,
             Name = request.Name,
             Author = request.Author,

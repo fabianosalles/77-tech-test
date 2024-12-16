@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Infra.Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Application", "src\LMS.BookInventory.Application\LMS.BookInventory.Application.csproj", "{44723B79-B64D-4611-97E9-FCE69CAB5C79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Domain.UnitTests", "tests\LMS.BookInventory.Domain.UnitTests\LMS.BookInventory.Domain.UnitTests.csproj", "{42D50E08-EDFC-4098-A6E9-54389AC28248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{44723B79-B64D-4611-97E9-FCE69CAB5C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44723B79-B64D-4611-97E9-FCE69CAB5C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44723B79-B64D-4611-97E9-FCE69CAB5C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D50E08-EDFC-4098-A6E9-54389AC28248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D50E08-EDFC-4098-A6E9-54389AC28248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D50E08-EDFC-4098-A6E9-54389AC28248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D50E08-EDFC-4098-A6E9-54389AC28248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

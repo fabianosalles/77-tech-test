@@ -1,6 +1,9 @@
 ﻿using LMS.BookInventory.Application.Books.Commands.CreateBook;
+using LMS.BookInventory.Application.Books.Commands.UpdateBook;
+using LMS.BookInventory.Application.Books.Queries.GetList;
 using LMS.BookInventory.Models;
 using MediatR;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.BookInventory.Controllers;
@@ -29,14 +32,62 @@ public class BooksController : ControllerBase
         CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(request, cancellationToken);
-        var status = result?.ResultStatus;
-
+        var status = result?.Code;
         return status switch
         {
             CreateBookCommandResult.Status.BookCreated => Created(HttpContext.Request.Path, result),
-            CreateBookCommandResult.Status.DuplicateIsbnDetected => Conflict(result),
+
+            CreateBookCommandResult.Status.DuplicateIsbnDetected => Conflict(new
+            {
+                isbn = result?.Isbn,
+                message = "Duplicated ISBN detected"
+            }),
+
             _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
         };
-
     }
+
+    [HttpPut("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<UpdateBookCommandResult>> PutAsync(
+        [FromRoute] Guid id,
+        [FromBody] UpdateBookCommandItem values,
+        CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(new UpdateBookCommand() { Id = id, Values = values }, cancellationToken);
+        var status = result?.Code;
+        return status switch
+        {
+            UpdateBookCommandResult.Status.BookNotFound => NotFound(result),
+            UpdateBookCommandResult.Status.BookUpdated => NoContent(),
+            _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
+        };
+    }
+
+    /*
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<UpdateBookCommandResult>> GetAsync()
+    {
+        throw new NotImplementedException();
+    }
+    */
+
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<GetBookListQueryResult>> GetListAsync(
+        [FromQuery] GetBookListQuery query,
+        CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(query, cancellationToken);
+        var status = result?.Code;
+        return status switch
+        {
+            GetBookListQueryResult.Status => Ok(result),
+            _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
+        };
+    }
+
 }

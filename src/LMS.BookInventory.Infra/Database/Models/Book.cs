@@ -19,9 +19,9 @@ public class Book : IBaseTable<Guid>
 
     public string? Publisher { get; set; }
     
-    public bool Deleted { get; set; }
-
     public DateTimeOffset LastUpdatedDateTime { get; set; }
+
+    public bool Deleted { get; set; }
 
     public byte[] RowVersion { get; set; } = [];
 }

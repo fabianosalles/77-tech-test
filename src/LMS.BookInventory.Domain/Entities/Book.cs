@@ -7,17 +7,17 @@ public sealed class Book : IEquatable<Book>
     /// <summary>  
     ///  <see href="https://en.wikipedia.org/wiki/ISBN">ISBN</see> 
     /// </summary>
-    public required string Isbn { get; init; }
+    public required string Isbn { get; set; }
 
-    public required string Name { get; init; }
+    public required string Name { get; set; }
 
-    public required string Author { get; init; }
+    public required string Author { get; set; }
 
-    public ushort Edition { get; init; }
+    public ushort Edition { get; set; }
 
-    public string? Description { get; init; }
+    public string? Description { get; set; }
     
-    public string? Publisher { get; init; }
+    public string? Publisher { get; set; }
       
         
     #region 'Equalty overrides'
