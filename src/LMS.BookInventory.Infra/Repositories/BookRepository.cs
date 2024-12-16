@@ -129,6 +129,7 @@ public class BookRepository: IBookRepository
     {
         var dbBooks = await _dbContext.Books
             .AsNoTracking()
+            .Where(x => x.Deleted == false)
             .Skip(offset)
             .Take(limit)
             .ToListAsync(cancellationToken);

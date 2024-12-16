@@ -1,6 +1,7 @@
 ﻿using LMS.BookInventory.Application.Books.Commands.CreateBook;
 using LMS.BookInventory.Application.Books.Commands.UpdateBook;
 using LMS.BookInventory.Application.Books.Queries.GetList;
+using LMS.BookInventory.Application.Books.Queries.GeyById;
 using LMS.BookInventory.Models;
 using MediatR;
 using Microsoft.AspNet.OData;
@@ -65,15 +66,24 @@ public class BooksController : ControllerBase
         };
     }
 
-    /*
+
     [HttpGet("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<UpdateBookCommandResult>> GetAsync()
+    public async Task<ActionResult<GetBookListQueryResult>> GetAsync(
+        [FromRoute] Guid id,
+        CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var result = await _mediator.Send(new GetBookByIdQuery() { Id = id }, cancellationToken);
+        var status = result?.Code;
+        return status switch
+        {
+            GetBookByIdQueryResult.Status.Success => Ok(result),
+            GetBookByIdQueryResult.Status.BookNotFound => NotFound(),
+            _ => throw new NotSupportedException($"The following result is not supported. Result: {status}")
+        };
     }
-    */
+    
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
