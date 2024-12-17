@@ -1,18 +1,24 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Books</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
+:root {
+  --color-gray: #2c3e50;
+  --color-highlight: #42b983;
+  --color-highlight-alpha: #42b98342;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-gray);
 }
 
 nav {
@@ -21,10 +27,22 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--color-gray);
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: var(--color-highlight);
+}
+
+button {
+  border: 2px solid var(--color-highlight-alpha);
+  padding: .5rem 1rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  background-color: #eeeeee96;
+
+  &:hover {
+    background-color: var(--color-highlight-alpha);
+  }
 }
 </style>
