@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.BookInventory.Domain.UnitTests", "tests\LMS.BookInventory.Domain.UnitTests\LMS.BookInventory.Domain.UnitTests.csproj", "{42D50E08-EDFC-4098-A6E9-54389AC28248}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookInventory", "BookInventory", "{C620A82A-352A-4BAB-B444-365824D01D76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56C6A370-EFC1-4D3B-9C7E-3CA86972AB04} = {C620A82A-352A-4BAB-B444-365824D01D76}
+		{438D4010-9E0C-41AD-9FA6-D06FBF58EC2E} = {C620A82A-352A-4BAB-B444-365824D01D76}
+		{AFE476DA-C517-4AAC-8F5B-27A4C954F689} = {C620A82A-352A-4BAB-B444-365824D01D76}
+		{820558F9-0233-413D-A957-098D1DC0B9A9} = {C620A82A-352A-4BAB-B444-365824D01D76}
+		{44723B79-B64D-4611-97E9-FCE69CAB5C79} = {C620A82A-352A-4BAB-B444-365824D01D76}
+		{42D50E08-EDFC-4098-A6E9-54389AC28248} = {C620A82A-352A-4BAB-B444-365824D01D76}
 	EndGlobalSection
 EndGlobal

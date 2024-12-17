@@ -22,6 +22,8 @@ bld/
 [Ll]ogs/
 swagger.json
 
+
+**/.vs
 .vs/
 .idea/
 Generated\ Files/

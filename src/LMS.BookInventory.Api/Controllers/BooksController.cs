@@ -5,7 +5,6 @@ using LMS.BookInventory.Application.Books.Queries.GetList;
 using LMS.BookInventory.Application.Books.Queries.GeyById;
 using LMS.BookInventory.Models;
 using MediatR;
-using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LMS.BookInventory.Controllers;
