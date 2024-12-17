@@ -22,3 +22,9 @@ Simple Book List Browsing
 Simple modal form for adding new books
 ![image](https://github.com/user-attachments/assets/ec7b44ed-6e51-4bc3-98c2-9aad06d60b53)
 
+
+Small screen media query breakpoint
+
+![image](https://github.com/user-attachments/assets/9d38329d-f1fa-4b7d-94ba-0a2c72ee3926)
+
+
