@@ -1,7 +1,8 @@
 using LMS.BookInventory.Infra;
 using LMS.BookInventory.Application;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+
+var permissiveCors = "permissiveCors";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,15 @@ builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddInfrastructureServices(builder.Configuration, builder.Environment);
 builder.Services.AddApplicationServices();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy(permissiveCors, policy =>
+    {
+        policy.AllowAnyOrigin();
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+    });
+});
 builder.Services.AddControllers();
 builder.Services.AddApiVersioning(setup =>
 {
@@ -35,6 +45,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors(permissiveCors);
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();
