@@ -1,5 +1,19 @@
 # 77-tech-test
 
+This project implements the requirements described in the docs.
+
+The backend was designed with scale in mind. 
+I used the mediator pattern to isolate the layers and facilitate CQRS implementation. 
+Now we have only one db for reading and writing but, we could easily generate data mutation events on the infrastructure layer and publish it to a topic on `RabbitMQ` or `Azure Service Bus` to be consumed on the slave/reading db.
+
+I tried to build everything from scratch using the minimum number of external libraries. 
+The Vue application can greatly benefit from adopting a data validation library and extracting the API communication logic in a single, crosscutting service class, but I'm afraid my time is out. A structured logging library like Serilog, can also be a great addition on the backend.
+
+I hope you enjoy reviewing this, and please, feel free to get in touch in case of doubts.
+
+Thanks!
+
+
 ## Database Migrations
 
 To init the database, run the following command and the `LMS.BookInventory.Infra` directory
