@@ -127,4 +127,17 @@ th {
 .toolbar {
     margin: 1rem;
 }
+
+@media screen and ((max-width : 320px) or (max-width : 600px) or (max-width : 992px)) {
+    body{
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .card {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        border: none;
+    }
+}
 </style>
